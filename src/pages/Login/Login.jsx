@@ -30,7 +30,7 @@ const Login = () => {
                     <p>Nuevo en Netflix? <span onClick={() => {setSignState("Registrarse")}}>Registrate ahora</span></p>
                     :
                     <p>Ya tienes una cuenta? <span onClick={() => {setSignState("Iniciar sesión")}}>Iniciar sesión</span></p>
-                }
+                }   
                     
                 </div>
             </div>
