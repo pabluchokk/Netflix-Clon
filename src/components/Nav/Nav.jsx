@@ -5,6 +5,7 @@ import searchIcon from '../../assets/search-icon.svg'
 import bellIcon from '../../assets/bell.svg'
 import avatar from '../../assets/avatar.png'
 import caret from '../../assets/caret.png'
+import { logout } from '../../firebase.js'
 
 
 const Nav = () => {
@@ -35,14 +36,14 @@ const Nav = () => {
                 </ul>
             </div >
             <div className="nav-right">
-                <img src={searchIcon} alt=""  className='icons'/>
+                <img src={searchIcon} className='icons'/>
                 <p>Niños</p>
-                <img src={bellIcon} alt=""  className='icons'/>
+                <img src={bellIcon} className='icons'/>
                 <div className="nav-profile">
-                    <img src={avatar} alt=""  className='profile'/>
-                    <img src={caret} alt="" className='drop'/>
+                    <img src={avatar} className='profile'/>
+                    <img src={caret}  className='drop'/>
                     <div className="dropdown">
-                        <p>Cerrar sesión en Nétflix</p>
+                        <p onClick={() => {logout()}}>Cerrar sesión en Nétflix</p>
                     </div>
                 </div>
             </div>
