@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import logo from '../../assets/logo.png'
 import { login, signUp } from '../../firebase.js'
+import loadingGif from '../../assets/loading.gif'
 
 const Login = () => {
 
@@ -9,18 +10,24 @@ const Login = () => {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [contraseña, setContraseña] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const userAuth = async (e) => {
         e.preventDefault();
+        setLoading(true);
         if(signState === "Iniciar sesión"){
             await login(email, contraseña)
         } else {
             await signUp(nombre, email, contraseña)
         }
+        setLoading(false);
     }
 
 
     return (
+        loading ? <div className="spinner">
+            <img src={loadingGif} />
+        </div> : 
         <div className='login'>
             <img src={logo} alt="" className='loginLogo'/>
             <div className="login-form">
